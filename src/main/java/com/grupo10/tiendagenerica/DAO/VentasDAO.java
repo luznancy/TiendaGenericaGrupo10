@@ -116,7 +116,7 @@ public class VentasDAO {
 	 * 
 	 * @return
 	 */
-	
+
 	public ArrayList<VentasVO> listaDeVentasCliente(Integer cedula_cliente) {
 		// lista que contendra el o los proveedores obtenidos
 		ArrayList<VentasVO> listaventas = new ArrayList<VentasVO>();
@@ -126,7 +126,8 @@ public class VentasDAO {
 
 		try {
 			// prepare la sentencia en la base de datos
-			PreparedStatement consulta = conex.getConnection().prepareStatement("SELECT * FROM ventas Where cedula_cliente="+cedula_cliente);
+			PreparedStatement consulta = conex.getConnection()
+					.prepareStatement("SELECT * FROM ventas Where cedula_cliente=" + cedula_cliente);
 
 			// ejecute la sentencia
 			ResultSet res = consulta.executeQuery();
@@ -166,7 +167,7 @@ public class VentasDAO {
 
 		return listaventas;
 	}// mostrar ventas
-	
+
 	public ArrayList<VentasVO> listaDeVentas() {
 		// lista que contendra el o los proveedores obtenidos
 		ArrayList<VentasVO> listaventas = new ArrayList<VentasVO>();
@@ -176,13 +177,14 @@ public class VentasDAO {
 
 		try {
 			// prepare la sentencia en la base de datos
-			PreparedStatement consulta = conex.getConnection().prepareStatement("SELECT * FROM ventas");
+			PreparedStatement consulta = conex.getConnection().prepareStatement("SELECT * FROM ventas;");
 
 			// ejecute la sentencia
 			ResultSet res = consulta.executeQuery();
 
 			// cree un objeto para cada encontrado en la base de datos basado en la clase
 			// entidad con los datos encontrados
+			
 			while (res.next()) {
 				VentasVO Venta = new VentasVO();
 				Venta.setCodigo_venta(Integer.parseInt(res.getString("codigo_venta")));
@@ -191,25 +193,25 @@ public class VentasDAO {
 				Venta.setIva_venta(Double.parseDouble(res.getString("iva_venta")));
 				Venta.setTotal_venta(Double.parseDouble(res.getString("total_venta")));
 				Venta.setValor_venta(Double.parseDouble(res.getString("valor_venta")));
-
 				listaventas.add(Venta);
 			}
 
+			
 			// cerrar resultado, sentencia y conexión
-			res.close();
-			consulta.close();
-			conex.desconectar();
+						res.close();
+						consulta.close();
+						conex.desconectar();
 
 		} catch (SQLException e) {
 			// si hay un error en el sql mostrarlo
 			System.out.println("------------------- ERROR --------------");
-			System.out.println("No se pudo consultar todos los productos");
+			System.out.println("No se pudo consultar todos los productos sql");
 			System.out.println(e.getMessage());
 			System.out.println(e.getErrorCode());
 		} catch (Exception e) {
 			// si hay cualquier otro error mostrarlo
 			System.out.println("------------------- ERROR --------------");
-			System.out.println("No se pudo consultar todos los pproductos");
+			System.out.println("No se pudo consultar todos los productos excepcion");
 			System.out.println(e.getMessage());
 			System.out.println(e.getLocalizedMessage());
 		}
@@ -299,8 +301,8 @@ public class VentasDAO {
 	public int contarVenta() {
 		// instancia de conexion
 		Conexion conex = new Conexion();
-		int numero=0;
-		
+		int numero = 0;
+
 		try {
 			// inicializando sentencia
 			Statement estatuto = conex.getConnection().createStatement();
@@ -309,12 +311,11 @@ public class VentasDAO {
 			String sentencia = "Select count(codigo_venta)from ventas;";
 
 			// ejecuta la sentencia y la guarda en un resultset
-			ResultSet res= estatuto.executeQuery(sentencia);
-			
-			
+			ResultSet res = estatuto.executeQuery(sentencia);
+
 			// cree un objeto basado en la clase entidad con los datos encontrados
 			if (res.next()) {
-				//si encontro algo lo guarda
+				// si encontro algo lo guarda
 				numero = res.getInt(1);
 			}
 

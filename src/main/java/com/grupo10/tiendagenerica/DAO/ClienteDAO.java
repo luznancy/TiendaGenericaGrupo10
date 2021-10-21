@@ -125,7 +125,7 @@ public class ClienteDAO {
 
 		try {
 			// prepare la sentencia en la base de datos
-			PreparedStatement consulta = conex.getConnection().prepareStatement("SELECT * FROM clientes");
+			PreparedStatement consulta = conex.getConnection().prepareStatement("SELECT * FROM clientes;");
 
 			// ejecute la sentencia
 			ResultSet res = consulta.executeQuery();

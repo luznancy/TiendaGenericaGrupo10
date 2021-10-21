@@ -45,7 +45,7 @@
 							+ "</td><td>" + ventas[i].codigo_venta
 							+ "</td><td>" + ventas[i].valor_total
 							+ "</td><td>" + ventas[i].valor_venta  
-							+ "</td><td>" + ventas[i].valor_iva +"%" +
+							+ "</td><td>" + ventas[i].valor_iva +
 							"</td></tr>";			}
 				var tblbottom = "</table>";
 				var tbl = tbltop + main + tblbottom;
@@ -82,7 +82,7 @@
 				class="fas fa-truck"></i> Proveedores
 			</a> <a class="navbar-brand links" href="listaproductos.jsp"> <i
 				class="fas fa-apple-alt"></i> Productos
-			</a> <a class="navbar-brand links" href="insertarventa.jsp"> <i
+			<a class="nav-link active" aria-current="page" href="listaventas.jsp"> <i
 				class="fas fa-money-check-alt"></i> Ventas
 			</a> <a class="navbar-brand links" href="listareportes.jsp"> <i
 				class="fas fa-clipboard-list"></i> Reportes
