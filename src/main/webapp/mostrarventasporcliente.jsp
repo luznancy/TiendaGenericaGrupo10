@@ -80,64 +80,12 @@
 
 <script>
 
-
-
-function reporte_lista_usuarios() {
-	var baseurl = "http://localhost:8080/listarusuarios";
-	var xmlhttp = new XMLHttpRequest();
-	xmlhttp.open("GET", baseurl, true);
-	xmlhttp.onreadystatechange = function() {
-		if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
-			var usuarios = JSON.parse(xmlhttp.responseText);
-			var tbltop = "<table class='table table-hover'><tr><th>Cedula</th><th>Email</th><th>Nombre</th><th>Password</th><th>Usuario</th></tr>";
-			var main = "";
-			for (i = 0; i < usuarios.length; i++) {
-				main += "<tr><td>" + usuarios[i].cedula_usuario
-						+ "</td><td>" + usuarios[i].email_usuario
-						+ "</td><td>" + usuarios[i].nombre_usuario
-						+ "</td><td>" + usuarios[i].password + "</td><td>"
-						+ usuarios[i].usuario + "</td></tr>";
-			}//fin for
-			var tblbottom = "</table>";
-			var tbl = tbltop + main + tblbottom;
-			document.getElementById("usuarios_info").innerHTML = tbl;
-		}//fin if
-	}; //fin xml onreadystatechange
-	xmlhttp.send();
-	}//fin funcion cargar usuarios
-
-	
-	function reporte_lista_clientes() {
-		var baseurlc = "http://localhost:8080/listarclientes";
-		var xmlhttp = new XMLHttpRequest();
-		xmlhttp.open("GET", baseurlc, true);
-		xmlhttp.onreadystatechange = function() {
-			if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
-				var clientes = JSON.parse(xmlhttp.responseText);
-				var tbltop = "<table class='table table-hover'><tr><th>Cedula Cliente</th><th>Direccion Cliente</th><th>Email Cliente</th><th>Nombre Cliente</th><th>Telefono Cliente</th></tr>";
-				var main = "";
-				for (i = 0; i < clientes.length; i++) {
-					main += "<tr><td>" + clientes[i].cedula_cliente
-							+ "</td><td>" + clientes[i].direccion_cliente
-							+ "</td><td>" + clientes[i].email_cliente
-							+ "</td><td>" + clientes[i].nombre_cliente + "</td><td>"
-							+ clientes[i].telefono_cliente + "</td></tr>";
-				}
-				var tblbottom = "</table>";
-				var tbl = tbltop + main + tblbottom;
-				document.getElementById("clientes_info").innerHTML = tbl;
-			}//fin if
-		};//fin xml onreadystatechange
-		xmlhttp.send();
-	}//fin funcion cargar clientes
-	
 	
 	function reporte_ventas_cliente() {
 		
 		var cedula_sumar = document.getElementById("cedula_cliente_buscar").value;
 		var cliente_buscado = new XMLHttpRequest();
-		cliente_buscado.open('GET',
-				'http://localhost:8080/consultarclientes?cedula_cliente='
+		cliente_buscado.open('GET',	'http://localhost:8080/consultarclientes?cedula_cliente='
 						+ cedula_sumar, false);
 		cliente_buscado.send(null);
 		var cliente_encontrado = null;
