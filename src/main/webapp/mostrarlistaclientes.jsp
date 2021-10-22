@@ -64,6 +64,32 @@
 
 <script>
 
+
+
+function reporte_lista_usuarios() {
+	var baseurl = "http://localhost:8080/listarusuarios";
+	var xmlhttp = new XMLHttpRequest();
+	xmlhttp.open("GET", baseurl, true);
+	xmlhttp.onreadystatechange = function() {
+		if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
+			var usuarios = JSON.parse(xmlhttp.responseText);
+			var tbltop = "<table class='table table-hover'><tr><th>Cedula</th><th>Email</th><th>Nombre</th><th>Password</th><th>Usuario</th></tr>";
+			var main = "";
+			for (i = 0; i < usuarios.length; i++) {
+				main += "<tr><td>" + usuarios[i].cedula_usuario
+						+ "</td><td>" + usuarios[i].email_usuario
+						+ "</td><td>" + usuarios[i].nombre_usuario
+						+ "</td><td>" + usuarios[i].password + "</td><td>"
+						+ usuarios[i].usuario + "</td></tr>";
+			}//fin for
+			var tblbottom = "</table>";
+			var tbl = tbltop + main + tblbottom;
+			document.getElementById("usuarios_info").innerHTML = tbl;
+		}//fin if
+	}; //fin xml onreadystatechange
+	xmlhttp.send();
+	}//fin funcion cargar usuarios
+
 	
 	function reporte_lista_clientes() {
 		var baseurlc = "http://localhost:8080/listarclientes";
@@ -90,6 +116,38 @@
 	}//fin funcion cargar clientes
 	
 	
+	function reporte_ventas_cliente() {
+		
+		window.alert("inserte la cedula del cliente a mostrar");
+		
+		var baseurl = "http://localhost:8080/listarventas";
+		var xmlhttp = new XMLHttpRequest();
+		xmlhttp.open("GET", baseurl, true);
+		xmlhttp.onreadystatechange = function() {
+			if (xmlhttp.status === 200) {
+				var ventas = JSON.parse(xmlhttp.responseText);
+				var tbltop = "<table class='table table-hover'><tr><th>Cedula Cliente</th><th>Nombre Cliente</th><th>Codigo Venta</th><th>Valor Total Venta</th></tr>";
+				var main = "";
+				for (i = 0; i < ventas.length; i++) {
+					var cliente = null;
+					var xmlhttp2 = new XMLHttpRequest();
+					xmlhttp2.open("GET", "http://localhost:8080/consultarclientes?cedula_cliente=" + ventas[i].cedula_cliente, false);
+					xmlhttp2.send(null);
+					if (xmlhttp2.status == 200){
+						cliente = JSON.parse(xmlhttp2.responseText);
+					}
+					main += "<tr><td>" + ventas[i].cedula_cliente
+							+ "</td><td>" + cliente[0].nombre_cliente
+							+ "</td><td>" + ventas[i].codigo_venta
+							+ "</td><td>" + ventas[i].valor_venta + "</td></tr>";
+				}
+				var tblbottom = "</table>";
+				var tbl = tbltop + main + tblbottom;
+				document.getElementById("venta_clientes_info").innerHTML = tbl;
+			}//fin if
+		};//fin xml onreadystatechange
+		xmlhttp.send();
+	}//fin funcion cargar clientes
 	
 </script>
 </body>

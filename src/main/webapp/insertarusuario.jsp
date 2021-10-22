@@ -61,7 +61,7 @@
 			</a>
 			</li>
 			<li class="nav-item">
-			<a class="nav-link active" aria-current="page" href="listaventas.jsp"> <i
+			<a class="nav-link active" aria-current="page" href="insertarventa.jsp"> <i
 				class="fas fa-money-check-alt"></i> Ventas
 			</a>
 			</li>
