@@ -66,94 +66,85 @@
 	<nav class="navbar navbar-light" style="background-color: #F4FDB1">
 		<div class="container-fluid">
 			<ul class="nav nav-tabs">
-			<li class="nav-item">
-			<a class="navbar-brand links" href="index.html"><i class="fas fa-shopping-basket"></i>Tienda Generica</a>
-			</li>
-			<li class="nav-item">
-			<a class="nav-link active" aria-current="page" href="listausuarios.jsp"> <i
-				class="fas fa-users"></i> Usuarios
-			</a>
-			</li>
-			<li class="nav-item">
-			<a class="nav-link active" aria-current="page" href="listaclientes.jsp"> <i
-				class="fas fa-address-book"></i> Clientes
-			</a>
-			</li>
-			<li class="nav-item">
-			<a class="nav-link active" aria-current="page" href="listaproveedores.jsp"> <i
-				class="fas fa-truck"></i> Proveedores
-			</a>
-			</li>
-			<li class="nav-item">
-			<a class="nav-link active" aria-current="page" href="listaproductos.jsp"> <i
-				class="fas fa-apple-alt"></i> Productos
-			</a>
-			</li>
-			<li class="nav-item">
-			<a class="nav-link active" aria-current="page" href="insertarventa.jsp"> <i
-				class="fas fa-money-check-alt"></i> Ventas
-			</a>
-			</li>
-			<li class="nav-item">
-			<a class="nav-link active" aria-current="page" href="listareportes.jsp"> <i
-				class="fas fa-clipboard-list"></i> Reportes
-			</a>
-			</li>
+				<li class="nav-item"><a class="navbar-brand links"
+					href="index.html"><i class="fas fa-shopping-basket"></i>Tienda
+						Generica</a></li>
+				<li class="nav-item"><a class="nav-link active"
+					aria-current="page" href="listausuarios.jsp"> <i
+						class="fas fa-users"></i> Usuarios
+				</a></li>
+				<li class="nav-item"><a class="nav-link active"
+					aria-current="page" href="listaclientes.jsp"> <i
+						class="fas fa-address-book"></i> Clientes
+				</a></li>
+				<li class="nav-item"><a class="nav-link active"
+					aria-current="page" href="listaproveedores.jsp"> <i
+						class="fas fa-truck"></i> Proveedores
+				</a></li>
+				<li class="nav-item"><a class="nav-link active"
+					aria-current="page" href="listaproductos.jsp"> <i
+						class="fas fa-apple-alt"></i> Productos
+				</a></li>
+				<li class="nav-item"><a class="nav-link active"
+					aria-current="page" href="listaventas.jsp"> <i
+						class="fas fa-money-check-alt"></i> Ventas
+				</a></li>
+				<li class="nav-item"><a class="nav-link active"
+					aria-current="page" href="listareportes.jsp"> <i
+						class="fas fa-clipboard-list"></i> Reportes
+				</a></li>
 			</ul>
 		</div>
-		
 
-	<!-- Navbar modulos-->
-	
+
+		<!-- Navbar modulos-->
+
 	</nav>
 
 	<!-- contenido  -->
 
 	<div id="ponerimagen" style="display: flex;">
 
-		
+
 		<div class="container-fluid">
-				<h3>
-				Lista de usuarios
-				</h3>
-				<!--  Aqui es donde se autogenera la tabla basado en el script -->
-				<div class="col align-self-center" id="usuariosinfo"></div>
+			<h3>Lista de usuarios</h3>
+			<!--  Aqui es donde se autogenera la tabla basado en el script -->
+			<div class="col align-self-center" id="usuariosinfo"></div>
 		</div>
 
-		
+
 
 		<div id="botonesUsuarios" class="container-fluid">
-				<button id="btn1" type="button" class="btn btn-success"
-					onclick="window.location.href='/insertarusuario.jsp'">
-					<i class="fas fa-plus-circle"></i> Agregar usuario
-				</button>
-				<button id="btn2" type="button" class="btn btn-danger"
-					onclick="window.location.href='/eliminarusuario.jsp'">
-					<i class="fas fa-trash"></i> Eliminar usuario
-				</button>
-				<button id="btn3" type="button" class="btn btn-warning"
-					onclick="window.location.href='/actualizarusuario.jsp'">
-					<i class="fas fa-pen-alt"></i> Actualizar usuario
-				</button>
-				<button id="btn4" class="btn btn-primary"
-					onclick="window.location.href='/buscarusuario.jsp'">
-					<i class="fas fa-search"></i> Buscar un usuario
-				</button>
-				<button id="btn5" type="button" class="btn btn-primary"
-					onclick="window.location.href='/listausuarios.jsp'">
-					<i class="fas fa-search"></i> Listar todos los usuarios
-				</button>
-			
+			<button id="btn1" type="button" class="btn btn-success"
+				onclick="window.location.href='/insertarusuario.jsp'">
+				<i class="fas fa-plus-circle"></i> Agregar usuario
+			</button>
+			<button id="btn2" type="button" class="btn btn-danger"
+				onclick="window.location.href='/eliminarusuario.jsp'">
+				<i class="fas fa-trash"></i> Eliminar usuario
+			</button>
+			<button id="btn3" type="button" class="btn btn-warning"
+				onclick="window.location.href='/actualizarusuario.jsp'">
+				<i class="fas fa-pen-alt"></i> Actualizar usuario
+			</button>
+			<button id="btn4" class="btn btn-primary"
+				onclick="window.location.href='/buscarusuario.jsp'">
+				<i class="fas fa-search"></i> Buscar un usuario
+			</button>
+			<button id="btn5" type="button" class="btn btn-primary"
+				onclick="window.location.href='/listausuarios.jsp'">
+				<i class="fas fa-search"></i> Listar todos los usuarios
+			</button>
+
 		</div>
 	</div>
 
 
-	
+
 	<nav class="navbar navbar-light" style="background-color: #F4FDB1">
 		<div class="row justify-content-bottom">
 			<div class="col-4">
-				<a class="navbar-brand links" href="#">
-					Diseñado por Grupo 10 </a>
+				<a class="navbar-brand links" href="#"> Diseñado por Grupo 10 </a>
 			</div>
 		</div>
 	</nav>
